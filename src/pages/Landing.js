@@ -17,7 +17,7 @@ export function Landing() {
                 temp = recipe;
             }
             else {
-                temp = recipe.filter((recipe)=> recipe.ingredients.forEach((ingredient)=>{if(ingredient.includes(input)){ return true;} else { return false }}));
+                temp = recipe.filter((recipeSingle)=>containsWord(input, recipeSingle.ingredients));
             }
         }
         else {
@@ -26,7 +26,13 @@ export function Landing() {
         return temp;
     }
 
-    console.log(filteredRecipe());
+    function containsWord(word, array){
+        if(array.includes(word)) {
+           return true;
+        } else {
+          return false;
+        }
+      }
 
     const inputHandler = (event) => {
         setInput(event.target.value);
