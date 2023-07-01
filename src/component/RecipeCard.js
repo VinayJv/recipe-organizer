@@ -11,7 +11,7 @@ export function RecipeCard({ data : {name, ingredients, instructions, cuisineTyp
                     <div style={{margin: "2rem"}}></div>
                     <p>Ingredients</p>
                     <div style={{margin: "0.5rem"}}></div>
-                    <ol>{ingredients.map((item)=><li>{item}</li>)}</ol>
+                    <ol>{ingredients}</ol>
                     <div style={{margin: "2rem"}}></div>
                     <p>Instructions</p>
                     <div style={{margin: "0.5rem"}}></div>

@@ -17,15 +17,7 @@ export function Landing() {
                 temp = recipe;
             }
             else {
-                let filterRecipe = [];
-                recipe.forEach((recipeSingle)=>recipeSingle.ingredients.forEach((ingredient)=>{
-                    if(ingredient.toUpperCase().includes(input.toUpperCase())){
-                        filterRecipe.push(recipeSingle);
-                    }
-                temp = filterRecipe.filter(function(item, pos) {
-                    return filterRecipe.indexOf(item) == pos;
-                })
-                }));
+                temp = recipe.filter((recipe)=>recipe.ingredients.toUpperCase().includes(input.toUpperCase()));
             }
         }
         else {
@@ -33,14 +25,6 @@ export function Landing() {
         }
         return temp;
     }
-
-    function containsWord(word, str){
-        if(str.includes(word)) {
-           return true;
-        } else {
-          return false;
-        }
-      }
 
     const inputHandler = (event) => {
         setInput(event.target.value);
