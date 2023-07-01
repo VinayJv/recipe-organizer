@@ -17,7 +17,15 @@ export function Landing() {
                 temp = recipe;
             }
             else {
-                temp = recipe.filter((recipeSingle)=>containsWord(input, recipeSingle.ingredients));
+                let filterRecipe = [];
+                recipe.forEach((recipeSingle)=>recipeSingle.ingredients.forEach((ingredient)=>{
+                    if(ingredient.toUpperCase().includes(input.toUpperCase())){
+                        filterRecipe.push(recipeSingle);
+                    }
+                temp = filterRecipe.filter(function(item, pos) {
+                    return filterRecipe.indexOf(item) == pos;
+                })
+                }));
             }
         }
         else {
@@ -26,8 +34,8 @@ export function Landing() {
         return temp;
     }
 
-    function containsWord(word, array){
-        if(array.includes(word)) {
+    function containsWord(word, str){
+        if(str.includes(word)) {
            return true;
         } else {
           return false;
